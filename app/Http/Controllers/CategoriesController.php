@@ -7,13 +7,10 @@ use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
 {
-
-
-
-
-public function __construct(){
-    $this->middleware("auth");
-}
+    public function __construct()
+    {
+        $this->middleware("auth");
+    }
 
 
     /**
@@ -21,9 +18,9 @@ public function __construct(){
      */
     public function index()
     {
-        $categories=Category::all();
+        $categories = Category::all();
         // la fonction impact sert a transmettre les variables vers la vue
-        return view("admin.categories.index",compact("categories"));
+        return view("admin.categories.index", compact("categories"));
     }
 
     /**
@@ -38,15 +35,15 @@ public function __construct(){
      */
     public function store(Request $request)
     {
-       // sécurité: controle sur les champs
-    $request->validate([
-        "name"=>"required|max:100|unique:categories"
-    ]);
-       // insertion dans la base de données
-category::create($request->all());
-//redirection vers la page liste avec l'envoi d un message de success
-// with envoi des variable sous forme de session flash
-        return redirect()->route("categories.index")->with("message","une nouvelle categorie est ajouté avec succès!");
+        // sécurité: controle sur les champs
+        $request->validate([
+            "name" => "required|max:100|unique:categories"
+        ]);
+        // insertion dans la base de données
+        category::create($request->all());
+        //redirection vers la page liste avec l'envoi d un message de success
+        // with envoi des variable sous forme de session flash
+        return redirect()->route("categories.index")->with("message", "une nouvelle categorie est ajouté avec succès!");
     }
 
     /**
@@ -62,7 +59,7 @@ category::create($request->all());
      */
     public function edit(Category $category)
     {
-        return view("admin.categories.edit",compact("category"));
+        return view("admin.categories.edit", compact("category"));
     }
 
     /**
@@ -74,10 +71,10 @@ category::create($request->all());
         $request->validate([
             'name' => 'required',
         ]);
-     // mise a jour avec eloquent
+        // mise a jour avec eloquent
         $category->update($request->all());
-    //redirection vers index
-        return redirect()->route("categories.index")->with("message","la categorie est modifiée avec succès!");
+        //redirection vers index
+        return redirect()->route("categories.index")->with("message", "la categorie est modifiée avec succès!");
     }
 
     /**
@@ -86,6 +83,6 @@ category::create($request->all());
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect()->route("categories.index")->with("message","une categorie est suprimée avec succès!");
+        return redirect()->route("categories.index")->with("message", "une categorie est suprimée avec succès!");
     }
 }

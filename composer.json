@@ -14,6 +14,7 @@
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
+        "friendsofphp/php-cs-fixer": "^3.54",
         "laravel-lang/common": "^6.2",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
@@ -63,6 +64,6 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true
 }

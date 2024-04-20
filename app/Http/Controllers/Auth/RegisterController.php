@@ -65,9 +65,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        if(!isset($data['role']))
-        {
-            $data['role']="client";
+        if(!isset($data['role'])) {
+            $data['role'] = "client";
         }
         return User::create([
             'name' => $data['name'],
@@ -77,8 +76,7 @@ class RegisterController extends Controller
 
         ]);
 
-        if($data['role']==="client")
-        {
+        if($data['role'] === "client") {
             return redirect()->back();
         }
     }

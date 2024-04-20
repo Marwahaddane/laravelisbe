@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    protected $fillable=[
+    protected $fillable = [
         'name',
         'description',
         'price',
@@ -17,10 +17,11 @@ class Product extends Model
         'category_id'
     ];
 
-// methode de relation categories
+    // methode de relation categories
 
-Public function category(){
-     return $this->belongsTo(Category::class);
-}
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 
 }
