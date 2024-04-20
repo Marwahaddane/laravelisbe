@@ -41,12 +41,29 @@ Route::get('/{date}/{num}', [OrderController::class, 'show'])
 Route::get("/",[WebsiteController::class,'accueil'])->name('website.accueil');
 Route::get("/presentation",[WebsiteController::class,'presentation'])->name('website.presentation');
 Route::get("/produits",[WebsiteController::class,'produits'])->name('website.produits');
+Route::get("/checkout",[WebsiteController::class,'checkout'])->name('website.checkout');
+
 
 Route::get("/contact",[WebsiteController::class,'contact'])->name('website.contact');
 Route::post("/contact/save",[WebsiteController::class,'save'])->name("website.save");
 
-// cette ligne genere 7 routes
+// // les routes dedans seront accessible que pour le utilisateurs uthentifiés
+// Route::middleware(['auth'])->group(function () {
+
+    // cette ligne genere 7 routes
 Route::resource('categories',CategoriesController::class);
 Route::resource('products',ProductsController::class);
+
+// });
+
+
 Route::post("panier/addtocart",[PanierController::class,"addToCart"])->name("panier.addtocart");
 Route::get("panier",[PanierController::class,"panier"])->name("panier.panier");
+Route::get("panier/delete/{indice}",[PanierController::class,"delprodpanier"])->name("panier.delprodpanier");
+Route::get("panier/vide",[PanierController::class,"viderpanier"])->name("panier.viderpanier");
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

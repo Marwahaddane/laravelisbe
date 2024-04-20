@@ -4,6 +4,8 @@
 page d'accueil
 @endsection
 
+@include('layouts.slider')
+
 @section("contenu")''
 <!--contenu de la page main  -->
 <!--debut du product-->

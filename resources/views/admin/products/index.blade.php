@@ -32,14 +32,14 @@
 
 
     <td>{{ $product->name }}</td>
-    <td>{{ $product->description}}</td>
+    <td style="max-width: 200px; ">{{ $product->description}}</td>
     <td>{{ $product->price }}</td>
     <td>{{ $product->category->name}}</td>
     <td>
 
         <a href="{{ route('products.edit', $product->id) }}"><button class="btn btn-success">Modifier</button></a>
 
-        <form class="d-inline"action="{{route('products.destroy', $product->id )}}"method="post">
+        <form class="d-inline" action="{{route('products.destroy', $product->id )}}"method="post">
             @csrf
             @method("DELETE")
         <button type="submit" onclick="return confirm('etes vous sure de supprimer?')" class ="btn btn-danger">Delete</button>

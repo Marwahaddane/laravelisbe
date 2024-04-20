@@ -23,28 +23,34 @@ votre panier
                                 </tr>
                             </thead>
                             <tbody>
-                            @forelse ($products as )
-
+                                @php
+                                    $total=0;
+                                @endphp
+                            @forelse ($products as $key => $product)
+                            @php
+                                $total+=$product['price']*$product['qty'];
+                            @endphp
+                            <tr>
+                                <td class="product-thumbnail">
+                                    <a href="#"><img height="80" src="{{asset('images/products/'.$product['photo1'])}}" alt=""></a>
+                                </td>
+                                <td class="product-name"><a href="#">{{$product['name']}}</a></td>
+                                <td class="product-price-cart"><span class="amount">{{$product['price']}}</span></td>
+                                <td class="product-quantity">
+                                    <div class="cart-plus-minus">
+                                        <input class="cart-plus-minus-box" type="text" name="qtybutton" value="{{$product['qty']}}">
+                                    </div>
+                                </td>
+                                <td class="product-subtotal">{{$product['price']*$product['qty']}}</td>
+                                <td class="product-remove">
+                                    <a href="#"><i class="fa fa-pencil"></i></a>
+                                    <a href="{{route("panier.delprodpanier",$key)}}"><i class="fa fa-trash"></i></a>
+                               </td>
+                            </tr>
                             @empty
-
+                             <tr><td colspan="6">Panier vide!</td></tr>
                             @endforelse
-                                <tr>
-                                    <td class="product-thumbnail">
-                                        <a href="#"><img src="assets/img/cart/cart-1.png" alt=""></a>
-                                    </td>
-                                    <td class="product-name"><a href="#">Product Name</a></td>
-                                    <td class="product-price-cart"><span class="amount">$260.00</span></td>
-                                    <td class="product-quantity">
-                                        <div class="cart-plus-minus">
-                                            <input class="cart-plus-minus-box" type="text" name="qtybutton" value="2">
-                                        </div>
-                                    </td>
-                                    <td class="product-subtotal">$110.00</td>
-                                    <td class="product-remove">
-                                        <a href="#"><i class="fa fa-pencil"></i></a>
-                                        <a href="#"><i class="fa fa-times"></i></a>
-                                   </td>
-                                </tr>
+
 
                             </tbody>
                         </table>
@@ -53,11 +59,11 @@ votre panier
                         <div class="col-lg-12">
                             <div class="cart-shiping-update-wrapper">
                                 <div class="cart-shiping-update">
-                                    <a href="#">Continue Shopping</a>
+                                    <a href="{{ route('website.produits')}}">Continue Shopping</a>
                                 </div>
                                 <div class="cart-clear">
                                     <button>Update Shopping Cart</button>
-                                    <a href="#">Clear Shopping Cart</a>
+                                    <a href="{{route("panier.viderpanier")}}">Clear Shopping Cart</a>
                                 </div>
                             </div>
                         </div>
@@ -126,16 +132,16 @@ votre panier
                             <div class="title-wrap">
                                 <h4 class="cart-bottom-title section-bg-gary-cart">Cart Total</h4>
                             </div>
-                            <h5>Total products <span>$260.00</span></h5>
-                            <div class="total-shipping">
+                            <h5>Total products <span>${{$total}}</span></h5>
+                            {{-- <div class="total-shipping">
                                 <h5>Total shipping</h5>
                                 <ul>
                                     <li><input type="checkbox"> Standard <span>$20.00</span></li>
                                     <li><input type="checkbox"> Express <span>$30.00</span></li>
                                 </ul>
-                            </div>
-                            <h4 class="grand-totall-title">Grand Total  <span>$260.00</span></h4>
-                            <a href="#">Proceed to Checkout</a>
+                            </div>  --}}
+                            <h4 class="grand-totall-title">Grand Total  <span>${{$total}}</span></h4>
+                            <a href="{{route("website.checkout")}}">Proceed to Checkout</a>
                         </div>
                     </div>
                 </div>

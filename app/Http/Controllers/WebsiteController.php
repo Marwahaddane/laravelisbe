@@ -20,6 +20,10 @@ class WebsiteController extends Controller
         $products=Product::all();
         return view("website.produits",compact("products"));
     }
+     public function checkout(){
+        $products=session()->get("panier");
+        return view("website.checkout",compact("products"));
+    }
 
     public function contact(){
         return view("website.contact");

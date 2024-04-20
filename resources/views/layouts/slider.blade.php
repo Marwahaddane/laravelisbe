@@ -8,13 +8,13 @@
                             <h3 class="animated">Smart Products</h3>
                             <h1 class="animated">Summer Offer <br>2020 Collection</h1>
                             <div class="slider-btn btn-hover">
-                                <a class="animated" href="shop.html">SHOP NOW</a>
+                                <a class="animated" href="{{ route('website.produits')}}">SHOP NOW</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-12 col-sm-6">
                         <div class="slider-single-img slider-animated-1">
-                            <img class="animated" src="{{asset('assets/img/slider/single-slide-1.png') }}" alt="">
+                            <img class="animated" src="{{asset('assets/img/slider/ma.jpg') }}" alt="">
                         </div>
                     </div>
                 </div>
@@ -28,13 +28,13 @@
                             <h3 class="animated">Smart Products</h3>
                             <h1 class="animated">Summer Offer <br>2020 Collection</h1>
                             <div class="slider-btn btn-hover">
-                                <a class="animated" href="shop.html">SHOP NOW</a>
+                                <a class="animated" href="{{ route('website.produits')}}">SHOP NOW</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-12 col-sm-6">
                         <div class="slider-single-img slider-animated-1">
-                            <img class="animated" src="{{asset('assets/img/slider/single-slide-hm1-2.png') }}" alt="">
+                            <img class="animated" src="{{asset('assets/img/slider/ma.jpg') }}" alt="">
                         </div>
                     </div>
                 </div>

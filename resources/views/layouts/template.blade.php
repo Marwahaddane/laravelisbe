@@ -40,9 +40,6 @@
     </div>
  </header>
 
- <!--debut slider area-->
-@include('layouts.slider')
-<!--fin slider area-->
 
 
 <!--debut suppoer area-->

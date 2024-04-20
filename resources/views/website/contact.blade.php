@@ -5,6 +5,7 @@ page contact
 @endsection
 
 @section("contenu")
+
 <div class="contact-area pt-100 pb-100">
     <div class="container">
         <div class="contact-map mb-10">
