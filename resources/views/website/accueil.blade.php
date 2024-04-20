@@ -4,9 +4,13 @@
 page d'accueil
 @endsection
 
-@include('layouts.slider')
 
 @section("contenu")''
+
+<!--debut slider area-->
+@include('layouts.slider')
+<!--debut slider area-->
+
 <!--contenu de la page main  -->
 <!--debut du product-->
 <div class="product-area pb-60">

@@ -41,17 +41,13 @@
  </header>
 
 
-
-<!--debut suppoer area-->
-@include('layouts.suppoer')
-<!--fin suppoer area-->
-
 <!--contenu du site web-->
-
 @yield("contenu")
-
 <!--fin contenu du site web-->
 
+ <!--debut suppoer area-->
+ @include('layouts.suppoer')
+ <!--fin suppoer area-->
 
 <!--debut de footer-->
 <footer class="footer-area bg-gray pt-100 pb-70">

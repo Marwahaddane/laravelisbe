@@ -167,7 +167,7 @@ page contact
                             <div class="your-order-bottom">
                                 <ul>
                                     <li class="your-order-shipping">Shipping</li>
-                                    <li>Free shipping</li>
+                                    <li>Livraison Gratuite</li>
                                 </ul>
                             </div>
                             <div class="your-order-total">
