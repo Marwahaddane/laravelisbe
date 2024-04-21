@@ -1,5 +1,5 @@
 <div class="logo">
-    <a href="index.html">
-        <img alt="" src="{{asset('assets/img/logo/logo.png') }}">
+    <a href="/">
+        <img alt="" src="{{asset('assets/img/logolaravelisbe.jpg') }}" style="max-height: 60px;top: -18px;position: relative;">
     </a>
 </div>
